@@ -13,13 +13,13 @@ services:
       - express
     environment:
       - NGINX_SERVER_NAME=localhost
-      - EXPRESS_HOST_1=pro-my-express-cadt
+      - EXPRESS_HOST_1=project1-express-1
       # - EXPRESS_HOST_2=my-express-cadt-2-master-express-2
       # - EXPRESS_HOST_3=my-express-cadt-2-master-express-3
       - EXPRESS_PORT=3000
       - NGINX_MAX_BODY=100M
     ports:
-      - 80:80
+      - 3000:3000
   express:
     build:
       context: .
