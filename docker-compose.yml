@@ -22,6 +22,8 @@ services:
       - NGINX_MAX_BODY=100M
     ports:
       - 3000:3000
+    networks:
+      - production-networks
   express:
     build:
       context: .
