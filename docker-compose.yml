@@ -1,0 +1,12 @@
+services:
+  frontend:
+    container_name: devkrc-frontend
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    # networks:
+    #   - production-networks
+# networks:
+#   production-networks:
+#     name: Nginx
+#     external: true

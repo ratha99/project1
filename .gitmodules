@@ -1,0 +1,6 @@
+[submodule "pro-vue-admin-core-main"]
+	path = pro-vue-admin-core-main
+	url = https://github.com/ratha99/pro-vue-admin-core-main.git
+[submodule "pro-mptc-doc-api"]
+	path = pro-mptc-doc-api
+	url = https://github.com/ratha99/pro-mptc-doc-api.git
