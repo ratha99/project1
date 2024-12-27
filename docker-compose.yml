@@ -68,8 +68,6 @@ services:
       - redis
 volumes:
   mongodbdata:
-    networks:
-      - production-networks
 networks:
   production-networks:
     name: Nginx
