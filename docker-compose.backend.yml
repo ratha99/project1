@@ -4,8 +4,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    networks:
-      - production-networks
   nginx:
     build:
       context: .
@@ -21,7 +19,7 @@ services:
       - EXPRESS_PORT=3000
       - NGINX_MAX_BODY=100M
     ports:
-      - 3000:3000
+      - 80:80
   express:
     build:
       context: .
@@ -32,8 +30,6 @@ services:
       - ./pro-my-express-cadt/.env:/app/.env
       - ./pro-my-express-cadt/uploads:/app/uploads
       - ./pro-my-express-cadt/index.html:/app/index.html
-    networks:
-      - production-networks
     scale: 1
     depends_on:
       - mongodb
@@ -47,30 +43,18 @@ services:
       - "27017:27017"
     volumes:
       - mongodbdata:/data/db
-    networks:
-      - production-networks
   redis:
     image: redis:5
     container_name: cadt-redis
     ports:
       - 6379:6379
-    networks:
-      - production-networks
   redis-commander:
     image: rediscommander/redis-commander:latest
     environment:
       - REDIS_HOSTS=local:cadt-redis:6379
     ports:
       - "8082:8081"
-    networks:
-      - production-networks
     depends_on:
       - redis
 volumes:
   mongodbdata:
-    networks:
-      - production-networks
-networks:
-  production-networks:
-    name: Nginx
-    external: true
